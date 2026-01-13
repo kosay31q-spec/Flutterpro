@@ -26,7 +26,16 @@ class _hmState extends State<hm> {
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
                 const PopupMenuItem<String>(
                   value: '/we',
-                  child: ListTile(trailing: Text('من نحن')),
+                  child: ListTile(trailing: Text('من نحن')),itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                const PopupMenuItem<String>(
+                  value: '/call',
+                  child: ListTile(trailing: Text('اتصل بنا')),itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                const PopupMenuItem<String>(
+                  value: '/week',
+                  child: ListTile(trailing: Text('برنامج الاسبوع')),itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                const PopupMenuItem<String>(
+                  value: '/logout',
+                  child: ListTile(trailing: Text('تسجيل خروج ')),
                 ),
               ],
             ),
@@ -34,6 +43,17 @@ class _hmState extends State<hm> {
         ),
       ],
         automaticallyImplyLeading: false
-    ),);
+    ),
+                body:home:Container(
+  width: width,
+  height:height ,
+  child: Column(
+  children: [
+    // عناصر هنا
+  ],
+)
+)
+                );
   }
 }
+
