@@ -24,7 +24,7 @@ class _log_inState extends State<log_in> {
           Row(
             children: [
               PopupMenuButton<String>(
-                onSelected: (String value) {},
+                onSelected: (String value) { Navigator.pushNamed(context, value);},
                 itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
                   const PopupMenuItem<String>(
                     value: '/we',
@@ -35,13 +35,15 @@ class _log_inState extends State<log_in> {
             ],
           ),
         ],
+          automaticallyImplyLeading: false
       ),
+
       body: Container(
         height: height,
         width: width,
         child: Column(
           children: [
-            Row(children: [SizedBox(height: 50)]),
+            Image.asset('assets/photo.png'),
             SizedBox(
               width: width * 0.8,
               child: TextField(
@@ -70,15 +72,15 @@ class _log_inState extends State<log_in> {
             SizedBox(height: height*0.02,),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => hm(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Hm(),));
               },
               child: Text('تسجيل الدخول '),
               style: ElevatedButton.styleFrom(
-                minimumSize: Size(250, 75), // مربع 100×100
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0),
-                ),
-                backgroundColor: Colors.blue[300]
+                  minimumSize: Size(250, 75), // مربع 100×100
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(0),
+                  ),
+                  backgroundColor: Colors.blue[300]
               ),
             )
           ],
