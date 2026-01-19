@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:schoolv2/screan/callme.dart';
+import 'package:schoolv2/screan/we.dart';
+import 'package:schoolv2/screan/weekend.dart';
 import 'screan/login.dart';
 
 void main(){
@@ -15,6 +18,13 @@ class run_app extends StatefulWidget {
 class _run_appState extends State<run_app> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: log_in(),);
+    return MaterialApp(debugShowCheckedModeBanner:false,home: log_in(),
+      routes: {
+        '/we': (context) => wee(),
+        '/week':(context) => week(),
+        '/call':(context) => call(),
+        '/log_in':(context) => log_in()
+
+      },);
   }
 }
