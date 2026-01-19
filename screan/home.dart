@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:schoolv2/screan/grads.dart';
+import 'package:schoolv2/screan/homwork.dart';
+import 'package:schoolv2/screan/nots.dart';
+import 'package:schoolv2/screan/person.dart';
 
 class Hm extends StatefulWidget {
   const Hm({super.key});
@@ -28,12 +32,14 @@ class _HmState extends State<Hm> {
         actions: [
           PopupMenuButton<String>(
             onSelected: (String value) {
-              // التعامل مع الاختيار هنا
+
+          Navigator.pushNamed(context, value);
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
               const PopupMenuItem<String>(
                 value: '/we',
                 child: Text('من نحن'),
+
               ),
               const PopupMenuItem<String>(
                 value: '/call',
@@ -44,12 +50,17 @@ class _HmState extends State<Hm> {
                 child: Text('برنامج الأسبوع'),
               ),
               const PopupMenuItem<String>(
-                value: '/logout',
+                value: '/log_in',
                 child: Text('تسجيل خروج'),
+                
               ),
             ],
+
+
           ),
         ],
+
+
         automaticallyImplyLeading: false,
       ),
       body: Container(
@@ -68,7 +79,7 @@ class _HmState extends State<Hm> {
                   height: buttonHeight,
                   child: ElevatedButton(
                     onPressed: () {
-                      // إضافة وظيفة الزر الأول
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => gradd(),));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue[300],
@@ -100,6 +111,7 @@ class _HmState extends State<Hm> {
                   height: buttonHeight,
                   child: ElevatedButton(
                     onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => per(),));
 
                     },
                     style: ElevatedButton.styleFrom(
@@ -140,7 +152,7 @@ class _HmState extends State<Hm> {
                   height: buttonHeight,
                   child: ElevatedButton(
                     onPressed: () {
-                      // إضافة وظيفة الزر الثالث
+            Navigator.push(context, MaterialPageRoute(builder: (context) => wor(),));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue[300],
@@ -172,7 +184,7 @@ class _HmState extends State<Hm> {
                   height: buttonHeight,
                   child: ElevatedButton(
                     onPressed: () {
-                      // إضافة وظيفة الزر الرابع
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => not(),));
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue[300],
