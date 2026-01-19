@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:schoolv2/screan/gra_seson_two.dart';
+import 'package:schoolv2/screan/gra_sesone_one.dart';
 
 
 class gradd extends StatefulWidget {
@@ -16,14 +18,19 @@ class _graddState extends State<gradd> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
+        leading:IconButton(onPressed: () {Navigator.pop(context);
+
+        }, icon: Icon(Icons.arrow_back_ios_new)),
         title: const Text(
-          "الفصول الدراسية",
+          "العلامات ",
           style: TextStyle(color: Colors.white),
         ),
         centerTitle: true,
         actions: [
           PopupMenuButton<String>(
-            onSelected: (String value) {},
+            onSelected: (String value) {
+              Navigator.pushNamed(context, value);
+            },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
               const PopupMenuItem<String>(
                 value: '/we',
@@ -38,12 +45,14 @@ class _graddState extends State<gradd> {
                 child: Text('برنامج الأسبوع'),
               ),
               const PopupMenuItem<String>(
-                value: '/logout',
+                value: '/log_in',
                 child: Text('تسجيل خروج'),
               ),
             ],
           ),
-        ],leadingWidth: width,
+        ],
+        leadingWidth: 50, // هنا يجب أن تكون داخل AppBar، خارج actions
+        automaticallyImplyLeading: false, // وهنا أيضاً
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -57,9 +66,8 @@ class _graddState extends State<gradd> {
                   child: Text("1", style: TextStyle(color: Colors.white)),
                 ),
                 title: Text("الفصل الأول"),
-                trailing: Icon(Icons.arrow_forward),
-                onTap: () {
-
+                trailing: Icon(Icons.arrow_back_ios_new),
+                onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => gra_one(),));
                 },
               ),
             ),
@@ -70,13 +78,12 @@ class _graddState extends State<gradd> {
             Card(
               child: ListTile(
                 leading: CircleAvatar(
-                  backgroundColor: Colors.green,
+                  backgroundColor: Colors.blue,
                   child: Text("2", style: TextStyle(color: Colors.white)),
                 ),
                 title: Text("الفصل الثاني"),
                 trailing: Icon(Icons.arrow_forward),
-                onTap: () {
-
+                onTap: () {Navigator.push(context, MaterialPageRoute(builder: (context) => gra_two(),));
                 },
               ),
             ),
@@ -86,5 +93,4 @@ class _graddState extends State<gradd> {
     );
   }
 }
-
 
